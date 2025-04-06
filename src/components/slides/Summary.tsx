@@ -4,67 +4,64 @@ import SlideTitle from '../shared/SlideTitle';
 
 const Summary: React.FC = () => {
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col items-center justify-center p-6 text-center">
       <SlideTitle>Sommaire</SlideTitle>
       
-      <div className="flex flex-col md:flex-row h-full">
-        <div className="md:w-1/2 pr-8">
-          <h3 className="text-xl font-semibold mb-4 text-indigo-600 dark:text-indigo-400">
-            Partie Frontend (10 min)
-          </h3>
-          <ul className="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300">
-            <li>Conception de l'interface utilisateur
-              <ul className="list-[circle] list-inside ml-5 mt-2 space-y-1 text-sm">
-                <li>Wireframes et maquettes</li>
-                <li>Système de thèmes adaptatif</li>
-              </ul>
-            </li>
-            <li>Technologies et architecture
-              <ul className="list-[circle] list-inside ml-5 mt-2 space-y-1 text-sm">
-                <li>React/TypeScript/Tailwind CSS</li>
-                <li>Organisation des composants</li>
-              </ul>
-            </li>
-            <li>Expérience utilisateur
-              <ul className="list-[circle] list-inside ml-5 mt-2 space-y-1 text-sm">
-                <li>Responsive design</li>
-                <li>Accessibilité WCAG 2.1</li>
-              </ul>
-            </li>
-            <li>Démonstration frontend</li>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mt-8">
+        <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded shadow">
+          <h3 className="text-xl font-bold text-indigo-600 mb-2">1. Introduction (3 min)</h3>
+          <ul className="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>Présentation personnelle</li>
+            <li>Problématique</li>
+            <li>Solution et évolution</li>
           </ul>
         </div>
         
-        <div className="md:w-1/2 pl-0 md:pl-8 mt-6 md:mt-0">
-          <h3 className="text-xl font-semibold mb-4 text-indigo-600 dark:text-indigo-400">
-            Partie Backend (10 min)
-          </h3>
-          <ul className="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300">
-            <li>Architecture API RESTful
-              <ul className="list-[circle] list-inside ml-5 mt-2 space-y-1 text-sm">
-                <li>Structure MVC et organisation</li>
-                <li>Format de réponse standardisé</li>
-              </ul>
-            </li>
-            <li>Sécurité et authentification
-              <ul className="list-[circle] list-inside ml-5 mt-2 space-y-1 text-sm">
-                <li>Système JWT</li>
-                <li>Protection contre les injections</li>
-              </ul>
-            </li>
-            <li>Système de paiement
-              <ul className="list-[circle] list-inside ml-5 mt-2 space-y-1 text-sm">
-                <li>Intégration Stripe/PayPal</li>
-                <li>Suivi des transactions</li>
-              </ul>
-            </li>
-            <li>Démonstration backend</li>
+        <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded shadow">
+          <h3 className="text-xl font-bold text-indigo-600 mb-2">2. DÉMO CLI (2 min)</h3>
+          <ul className="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>CLI en action</li>
+            <li>Avantages & limites</li>
           </ul>
         </div>
-      </div>
-      
-      <div className="mt-auto pt-6 text-gray-500 text-sm border-t border-gray-200 dark:border-gray-700">
-        <p>Temps total de présentation: 20 minutes + questions</p>
+        
+        <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded shadow">
+          <h3 className="text-xl font-bold text-indigo-600 mb-2">3. Frontend (5 min)</h3>
+          <ul className="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>Architecture & choix techniques</li>
+            <li>Système de thèmes</li>
+            <li>Responsive & Accessibilité</li>
+            <li>DÉMO Frontend</li>
+          </ul>
+        </div>
+        
+        <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded shadow">
+          <h3 className="text-xl font-bold text-indigo-600 mb-2">4. Backend (5 min)</h3>
+          <ul className="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>API RESTful & MVC</li>
+            <li>Sécurité & Authentification</li>
+            <li>Système de paiement</li>
+            <li>DÉMO Backend</li>
+          </ul>
+        </div>
+        
+        <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded shadow">
+          <h3 className="text-xl font-bold text-indigo-600 mb-2">5. Déploiement (3 min)</h3>
+          <ul className="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>Pipeline CI/CD</li>
+            <li>Docker & Sécurité</li>
+            <li>Monitoring</li>
+          </ul>
+        </div>
+        
+        <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded shadow">
+          <h3 className="text-xl font-bold text-indigo-600 mb-2">6. Conclusion (2 min)</h3>
+          <ul className="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>Compétences acquises</li>
+            <li>Difficultés & solutions</li>
+            <li>Perspectives d'évolution</li>
+          </ul>
+        </div>
       </div>
     </div>
   );

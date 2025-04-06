@@ -1,0 +1,11 @@
+venv
+src/chimera_cli.egg-info
+__pycache__
+.aidigestignore
+CONTRIBUTING.md
+README.md
+node_modules/
+vendor/
+logs/
+coverage/
+styles/

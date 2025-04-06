@@ -5,16 +5,9 @@ import { useSlides } from '../../context/SlideContext';
 const slidesTitles = [
   "Titre",
   "Sommaire",
-  "Problématique",
-  "Architecture",
-  "Frontend - Conception UI",
-  "Frontend - Système de thèmes",
-  "Frontend - Responsive & Accessibilité",
-  "Frontend - Architecture",
-  "Backend - API REST",
-  "Backend - Authentification JWT",
-  "Backend - Système de paiement",
-  "Backend - Sécurité & RGPD",
+  "Introduction",
+  "Frontend",
+  "Backend",
   "Déploiement",
   "Conclusion"
 ];
