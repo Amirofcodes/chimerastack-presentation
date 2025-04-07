@@ -1,5 +1,3 @@
-Below is the updated README.md without the contribution section, tailored for internal use and presentation to the jury:
-
 ```markdown
 # ChimeraStack Presentation
 
