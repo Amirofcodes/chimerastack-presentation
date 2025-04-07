@@ -1,46 +1,93 @@
-# Getting Started with Create React App
+Below is the updated README.md without the contribution section, tailored for internal use and presentation to the jury:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```markdown
+# ChimeraStack Presentation
 
-## Available Scripts
+ChimeraStack Presentation is a React-based slide deck designed to showcase the ChimeraStack project—a solution for automating development environments. This presentation was developed as part of the final project for the RNCP38606 Full Stack Developer certification at IT-Akademy. It demonstrates our technical skills from both frontend and backend perspectives, along with deployment and DevOps practices.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Overview](#overview)
+- [Project Structure](#project-structure)
+- [Features](#features)
+- [Development](#development)
+- [Docker Usage](#docker-usage)
+- [Deployment](#deployment)
+- [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Overview
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+ChimeraStack started as a CLI tool to simplify development environment configurations and evolved into a full web platform. This presentation highlights:
+- The evolution from CLI to web platform.
+- The architecture and design of the frontend (React, TypeScript, Tailwind CSS) and backend (API RESTful with PHP, JWT, and payment integration).
+- The deployment process using Docker, GitHub Actions (CI/CD), and Nginx with SSL.
 
-### `npm test`
+## Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+.
+├── docker-compose.yml           # Docker Compose configuration for local development.
+├── Dockerfile                   # Dockerfile for building the development container.
+├── package.json                 # Project dependencies and scripts.
+├── public/                      # Public assets and index.html.
+├── README.md                    # This file.
+├── src/
+│   ├── App.tsx                  # Main presentation component.
+│   ├── components/              # Reusable components (layout, shared, slides).
+│   │   ├── layout/              # Sidebar and SlideContainer.
+│   │   ├── shared/              # Carousel, SlideTitle.
+│   │   └── slides/              # All slides (Title, Summary, Introduction, Frontend, Backend, Deployment, Conclusion).
+│   ├── context/                 # SlideContext for managing slide navigation.
+│   ├── index.tsx                # App entry point.
+│   ├── index.css                # Global styles (using Tailwind CSS).
+│   └── styles/                  # Additional style files.
+└── tailwind.config.js           # Tailwind CSS configuration.
+```
 
-### `npm run build`
+Several slides include enhanced versions (located in sub-folders named `Enhanced`) with refined graphics and content.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Modular Slide Deck:** Each section (Title, Summary, Introduction, Frontend, Backend, Deployment, Conclusion) is implemented as an independent React component.
+- **Internal Carousels:** Sections like Frontend, Backend, and Deployment include carousels to present multiple sub-slides with smooth transitions (using Framer Motion).
+- **Responsive & Themed Design:** Built with Tailwind CSS supporting dark/light modes and centered content for a professional look.
+- **Dockerized Development:** Ensures consistency across environments using Docker and Docker Compose.
+- **Static Build for GitHub Pages:** The final build is static and can be deployed to GitHub Pages.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Development
 
-### `npm run eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [Node.js](https://nodejs.org/) (v14+ recommended)
+- [npm](https://www.npmjs.com/)
+- [Docker](https://www.docker.com/) (optional, for Docker-based development)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Local Development
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/chimerastack-presentation.git
+   cd chimerastack-presentation
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Start the development server:**
+   ```bash
+   npm start
+   ```
+   The app will run at [http://localhost:3000](http://localhost:3000).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Using Docker
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run the project in a Docker container:
+
+1. **Build and start the container:**
+   ```bash
+   docker-compose up --build
+   ```
+2. **Access the application:**
+   Open your browser at [http://localhost:3001](http://localhost:3001).

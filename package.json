@@ -2,6 +2,7 @@
   "name": "chimerastack-presentation",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://amirofcodes.github.io/chimerastack-presentation",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -22,6 +23,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -46,6 +49,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.3",
     "autoprefixer": "^10.4.21",
+    "gh-pages": "^5.0.0",
     "postcss": "^8.5.3",
     "postcss-loader": "^7.3.4",
     "tailwindcss": "^4.1.3"
