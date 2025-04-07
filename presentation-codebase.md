@@ -315,18 +315,32 @@ import SlideContainer from './components/layout/SlideContainer';
 import Title from './components/slides/Title';
 import Summary from './components/slides/Summary';
 import Introduction from './components/slides/Introduction';
-// Importez les autres sections
+import Frontend from './components/slides/Frontend';
+import Backend from './components/slides/Backend';
+import Deployment from './components/slides/Deployment';
+import Conclusion from './components/slides/Conclusion'; // Import Conclusion
 
 const Presentation: React.FC = () => {
   const { currentSlide } = useSlides();
   
   const renderCurrentSlide = () => {
     switch(currentSlide) {
-      case 0: return <Title />;
-      case 1: return <Summary />;
-      case 2: return <Introduction />;
-      // Autres sections
-      default: return <div>Slide en construction</div>;
+      case 0:
+        return <Title />;
+      case 1:
+        return <Summary />;
+      case 2:
+        return <Introduction />;
+      case 3:
+        return <Frontend />;
+      case 4:
+        return <Backend />;
+      case 5:
+        return <Deployment />;
+      case 6:
+        return <Conclusion />;
+      default:
+        return <div>Slide en construction</div>;
     }
   };
   
@@ -349,6 +363,7 @@ function App() {
 }
 
 export default App;
+
 ```
 
 # src/components/layout/Sidebar.tsx
@@ -579,6 +594,418 @@ const SlideTitle: React.FC<SlideTitleProps> = ({ children }) => {
 export default SlideTitle;
 ```
 
+# src/components/slides/Backend/Demo.tsx
+
+```tsx
+import React from 'react';
+
+const Demo: React.FC = () => (
+  <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+    <h3 className="text-2xl font-semibold text-indigo-600 mb-6">Démonstration Backend</h3>
+    <div className="space-y-4 text-gray-700 dark:text-gray-300 max-w-2xl">
+      <p className="text-lg">
+        Visualisation de l'API via Swagger pour explorer les endpoints.
+      </p>
+      <p className="text-lg">
+        Présentation d'exemples de réponses API formatées (succès et erreurs).
+      </p>
+      <p className="text-lg">
+        Mise en avant de la robustesse et de la sécurité de l'architecture backend.
+      </p>
+    </div>
+  </div>
+);
+
+export default Demo;
+
+```
+
+# src/components/slides/Backend/index.tsx
+
+```tsx
+import React from 'react';
+import SlideTitle from '../../shared/SlideTitle';
+import Carousel from '../../shared/Carousel';
+import Overview from './Overview';
+import Security from './Security';
+import Payment from './Payment';
+import Demo from './Demo';
+
+const Backend: React.FC = () => {
+  const slides = [
+    <Overview />,
+    <Security />,
+    <Payment />,
+    <Demo />
+  ];
+
+  return (
+    <div className="h-full flex flex-col">
+      <SlideTitle>Backend</SlideTitle>
+      <div className="flex-1">
+        <Carousel slides={slides} />
+      </div>
+    </div>
+  );
+};
+
+export default Backend;
+
+```
+
+# src/components/slides/Backend/Overview.tsx
+
+```tsx
+import React from 'react';
+
+const Overview: React.FC = () => (
+  <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+    <h3 className="text-2xl font-semibold text-indigo-600 mb-6">API RESTful & Structure MVC</h3>
+    <div className="space-y-4 text-gray-700 dark:text-gray-300 max-w-2xl">
+      <p className="text-lg">
+        Conception d'une API RESTful modulable reposant sur le modèle MVC pour une organisation claire.
+      </p>
+      <p className="text-lg">
+        Standardisation des réponses en JSON afin de faciliter la communication avec le frontend.
+      </p>
+      <p className="text-lg">
+        Architecture orientée microservices pour une scalabilité efficace.
+      </p>
+    </div>
+  </div>
+);
+
+export default Overview;
+
+```
+
+# src/components/slides/Backend/Payment.tsx
+
+```tsx
+import React from 'react';
+
+const Payment: React.FC = () => (
+  <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+    <h3 className="text-2xl font-semibold text-indigo-600 mb-6">Système de Paiement</h3>
+    <div className="space-y-4 text-gray-700 dark:text-gray-300 max-w-2xl">
+      <p className="text-lg">
+        Intégration de Stripe et PayPal pour des transactions sécurisées.
+      </p>
+      <p className="text-lg">
+        Suivi des paiements via un modèle de données dédié et gestion des transactions.
+      </p>
+      <p className="text-lg">
+        Facilité d'extension pour ajouter de futures fonctionnalités premium.
+      </p>
+    </div>
+  </div>
+);
+
+export default Payment;
+
+```
+
+# src/components/slides/Backend/Security.tsx
+
+```tsx
+import React from 'react';
+
+const Security: React.FC = () => (
+  <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+    <h3 className="text-2xl font-semibold text-indigo-600 mb-6">Sécurité & Authentification</h3>
+    <div className="space-y-4 text-gray-700 dark:text-gray-300 max-w-2xl">
+      <p className="text-lg">
+        Implémentation d'un système d'authentification sécurisé via JWT.
+      </p>
+      <p className="text-lg">
+        Utilisation de middleware pour protéger les endpoints sensibles.
+      </p>
+      <p className="text-lg">
+        Mesures de prévention contre les injections SQL, CSRF et XSS.
+      </p>
+    </div>
+  </div>
+);
+
+export default Security;
+
+```
+
+# src/components/slides/Conclusion.tsx
+
+```tsx
+import React from 'react';
+import SlideTitle from '../shared/SlideTitle';
+
+const Conclusion: React.FC = () => {
+  return (
+    <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+      <SlideTitle>Conclusion</SlideTitle>
+      <div className="space-y-6 text-gray-700 dark:text-gray-300 max-w-3xl">
+        <p className="text-lg">
+          <strong>Compétences Acquises :</strong> La réalisation de ChimeraStack a permis de renforcer les compétences en développement full stack, notamment la conception d’architectures sécurisées, l’intégration continue et la gestion d’environnements Docker, conformément aux exigences du RNCP38606.
+        </p>
+        <p className="text-lg">
+          <strong>Difficultés & Solutions :</strong> Les défis liés à la configuration des environnements et à la sécurisation des données ont été surmontés grâce à l’automatisation via Docker, à des tests rigoureux et à une architecture API robuste.
+        </p>
+        <p className="text-lg">
+          <strong>Perspectives d'Évolution :</strong> Le projet ouvre des perspectives pour intégrer de nouveaux templates, explorer des technologies complémentaires telles que Node.js ou Python, et améliorer en continu les performances et la sécurité de la plateforme.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Conclusion;
+
+```
+
+# src/components/slides/Deployment/index.tsx
+
+```tsx
+import React from 'react';
+import SlideTitle from '../../shared/SlideTitle';
+import Carousel from '../../shared/Carousel';
+import Infra from './Infra';
+import Pipeline from './Pipeline';
+import Monitoring from './Monitoring';
+
+const Deployment: React.FC = () => {
+  const slides = [
+    <Infra />,
+    <Pipeline />,
+    <Monitoring />
+  ];
+
+  return (
+    <div className="h-full flex flex-col">
+      <SlideTitle>Déploiement</SlideTitle>
+      <div className="flex-1">
+        <Carousel slides={slides} />
+      </div>
+    </div>
+  );
+};
+
+export default Deployment;
+
+```
+
+# src/components/slides/Deployment/Infra.tsx
+
+```tsx
+import React from 'react';
+
+const Infra: React.FC = () => (
+  <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+    <h3 className="text-2xl font-semibold text-indigo-600 mb-6">Infrastructure & Hébergement</h3>
+    <div className="space-y-4 text-gray-700 dark:text-gray-300 max-w-2xl">
+      <p className="text-lg">
+        Utilisation d’un VPS Contabo avec Ubuntu 20.04 et gestion DNS via Namecheap.
+      </p>
+      <p className="text-lg">
+        Architecture Docker multi-conteneurs orchestrée par Docker Compose.
+      </p>
+      <p className="text-lg">
+        Configuration de Nginx pour la terminaison SSL et le routage sécurisé.
+      </p>
+    </div>
+  </div>
+);
+
+export default Infra;
+
+```
+
+# src/components/slides/Deployment/Monitoring.tsx
+
+```tsx
+import React from 'react';
+
+const Monitoring: React.FC = () => (
+  <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+    <h3 className="text-2xl font-semibold text-indigo-600 mb-6">Monitoring & Maintenance</h3>
+    <div className="space-y-4 text-gray-700 dark:text-gray-300 max-w-2xl">
+      <p className="text-lg">
+        Surveillance continue des services via healthchecks et monitoring.
+      </p>
+      <p className="text-lg">
+        Centralisation et rotation des logs pour une maintenance proactive.
+      </p>
+      <p className="text-lg">
+        Processus de mise à jour et de maintenance réguliers pour garantir la disponibilité.
+      </p>
+    </div>
+  </div>
+);
+
+export default Monitoring;
+
+```
+
+# src/components/slides/Deployment/Pipeline.tsx
+
+```tsx
+import React from 'react';
+
+const Pipeline: React.FC = () => (
+  <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+    <h3 className="text-2xl font-semibold text-indigo-600 mb-6">Pipeline CI/CD & Sécurité</h3>
+    <div className="space-y-4 text-gray-700 dark:text-gray-300 max-w-2xl">
+      <p className="text-lg">
+        Intégration continue et déploiement automatisé via GitHub Actions.
+      </p>
+      <p className="text-lg">
+        Tests automatisés et validation du code avant déploiement en production.
+      </p>
+      <p className="text-lg">
+        Gestion sécurisée des variables d’environnement pour la flexibilité.
+      </p>
+    </div>
+  </div>
+);
+
+export default Pipeline;
+
+```
+
+# src/components/slides/Frontend/Demo.tsx
+
+```tsx
+import React from 'react';
+
+const Demo: React.FC = () => (
+  <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+    <h3 className="text-2xl font-semibold text-indigo-600 mb-6">Démonstration Frontend</h3>
+    <div className="space-y-4 text-gray-700 dark:text-gray-300 max-w-2xl">
+      <p className="text-lg">
+        Navigation intuitive via la sidebar et changement de thèmes en direct.
+      </p>
+      <p className="text-lg">
+        Parcours utilisateur fluide mettant en avant les fonctionnalités clés.
+      </p>
+      <p className="text-lg">
+        Interaction dynamique avec les composants pour illustrer l’expérience utilisateur.
+      </p>
+    </div>
+  </div>
+);
+
+export default Demo;
+
+```
+
+# src/components/slides/Frontend/index.tsx
+
+```tsx
+import React from 'react';
+import SlideTitle from '../../shared/SlideTitle';
+import Carousel from '../../shared/Carousel';
+import Overview from './Overview';
+import Themes from './Themes';
+import UX from './UX';
+import Demo from './Demo';
+
+const Frontend: React.FC = () => {
+  const slides = [
+    <Overview />,
+    <Themes />,
+    <UX />,
+    <Demo />
+  ];
+
+  return (
+    <div className="h-full flex flex-col">
+      <SlideTitle>Frontend</SlideTitle>
+      <div className="flex-1">
+        <Carousel slides={slides} />
+      </div>
+    </div>
+  );
+};
+
+export default Frontend;
+
+```
+
+# src/components/slides/Frontend/Overview.tsx
+
+```tsx
+import React from 'react';
+
+const Overview: React.FC = () => (
+  <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+    <h3 className="text-2xl font-semibold text-indigo-600 mb-6">Architecture & Choix Techniques</h3>
+    <div className="space-y-4 text-gray-700 dark:text-gray-300 max-w-2xl">
+      <p className="text-lg">
+        Utilisation de React, TypeScript et Tailwind CSS pour une interface moderne et sécurisée.
+      </p>
+      <p className="text-lg">
+        Organisation modulaire des composants et intégration via Context API.
+      </p>
+      <p className="text-lg">
+        Communication avec le backend via un service API dédié.
+      </p>
+    </div>
+  </div>
+);
+
+export default Overview;
+
+```
+
+# src/components/slides/Frontend/Themes.tsx
+
+```tsx
+import React from 'react';
+
+const Themes: React.FC = () => (
+  <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+    <h3 className="text-2xl font-semibold text-indigo-600 mb-6">Système de Thèmes Adaptatif</h3>
+    <div className="space-y-4 text-gray-700 dark:text-gray-300 max-w-2xl">
+      <p className="text-lg">
+        Implémentation d’un système de thèmes avec options clair/sombre et classique/moderne.
+      </p>
+      <p className="text-lg">
+        Permet aux utilisateurs de personnaliser leur expérience selon leurs préférences.
+      </p>
+      <p className="text-lg">
+        Changement de thème dynamique en temps réel.
+      </p>
+    </div>
+  </div>
+);
+
+export default Themes;
+
+```
+
+# src/components/slides/Frontend/UX.tsx
+
+```tsx
+import React from 'react';
+
+const UX: React.FC = () => (
+  <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+    <h3 className="text-2xl font-semibold text-indigo-600 mb-6">Design Responsive & Accessibilité</h3>
+    <div className="space-y-4 text-gray-700 dark:text-gray-300 max-w-2xl">
+      <p className="text-lg">
+        Conception mobile-first assurant une adaptation optimale sur tous les appareils.
+      </p>
+      <p className="text-lg">
+        Respect des normes WCAG 2.1 pour une accessibilité maximale.
+      </p>
+      <p className="text-lg">
+        Hiérarchie visuelle claire pour une expérience utilisateur intuitive.
+      </p>
+    </div>
+  </div>
+);
+
+export default UX;
+
+```
+
 # src/components/slides/Introduction/index.tsx
 
 ```tsx
@@ -633,51 +1060,56 @@ export default PersonalIntro;
 # src/components/slides/Introduction/Problem.tsx
 
 ```tsx
-// src/components/slides/Introduction/Problem.tsx
 import React from 'react';
 
 const Problem: React.FC = () => (
-  <div className="h-full flex flex-col p-6">
-    <h3 className="text-2xl font-semibold text-indigo-600 mb-6">Problématique</h3>
-    <p className="mb-4">La configuration complexe des environnements de développement freine l'apprentissage
-      des compétences fondamentales de programmation :</p>
-    <div className="space-y-3 text-gray-700 dark:text-gray-300">
-      <p>• 2-3 heures perdues par projet pour la configuration</p>
-      <p>• Frustration et démotivation pour les apprenants</p>
-      <p>• Problèmes récurrents : conflits de ports, incompatibilités...</p>
+  <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+    <h3 className="text-2xl font-semibold text-indigo-600 mb-8">Problématique</h3>
+    <p className="text-lg mb-6 max-w-2xl">
+      La configuration complexe des environnements de développement freine l'apprentissage des compétences fondamentales de programmation :
+    </p>
+    <div className="space-y-3 text-gray-700 dark:text-gray-300 max-w-xl">
+      <p className="text-lg">• 2-3 heures perdues par projet pour la configuration</p>
+      <p className="text-lg">• Frustration et démotivation pour les apprenants</p>
+      <p className="text-lg">• Problèmes récurrents : conflits de ports, incompatibilités...</p>
     </div>
   </div>
 );
 
 export default Problem;
+
 ```
 
 # src/components/slides/Introduction/Solution.tsx
 
 ```tsx
-// src/components/slides/Introduction/Solution.tsx
 import React from 'react';
 
 const Solution: React.FC = () => (
-  <div className="h-full flex flex-col p-6">
-    <h3 className="text-2xl font-semibold text-indigo-600 mb-6">Solution ChimeraStack</h3>
-    <p className="mb-4">Un outil d'automatisation des environnements de développement qui a évolué en deux phases :</p>
-    <div className="space-y-6 text-gray-700 dark:text-gray-300">
+  <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+    <h3 className="text-2xl font-semibold text-indigo-600 mb-8">Solution ChimeraStack</h3>
+    <p className="text-lg mb-6 max-w-2xl">
+      Un outil d'automatisation des environnements de développement qui a évolué en deux phases :
+    </p>
+    <div className="space-y-6 text-gray-700 dark:text-gray-300 max-w-xl">
       <div>
-        <h4 className="font-medium text-lg">Phase 1 : ChimeraStack CLI</h4>
-        <p className="mt-1">Outil en ligne de commande développé en Python permettant l'automatisation 
-        de la configuration via des templates Docker préconfigurés</p>
+        <h4 className="font-medium text-xl mb-2">Phase 1 : ChimeraStack CLI</h4>
+        <p className="text-lg">
+          Outil en ligne de commande développé en Python permettant l'automatisation de la configuration via des templates Docker préconfigurés.
+        </p>
       </div>
       <div>
-        <h4 className="font-medium text-lg">Phase 2 : Plateforme Web</h4>
-        <p className="mt-1">Évolution vers une interface web complète avec système d'authentification, 
-        catalogue de templates, et intégration de paiement</p>
+        <h4 className="font-medium text-xl mb-2">Phase 2 : Plateforme Web</h4>
+        <p className="text-lg">
+          Évolution vers une interface web complète avec système d'authentification, catalogue de templates, et intégration de paiement.
+        </p>
       </div>
     </div>
   </div>
 );
 
 export default Solution;
+
 ```
 
 # src/components/slides/Summary.tsx
@@ -689,73 +1121,71 @@ import SlideTitle from '../shared/SlideTitle';
 
 const Summary: React.FC = () => {
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col items-center justify-center p-6 text-center">
       <SlideTitle>Sommaire</SlideTitle>
       
-      <div className="flex flex-col md:flex-row h-full">
-        <div className="md:w-1/2 pr-8">
-          <h3 className="text-xl font-semibold mb-4 text-indigo-600 dark:text-indigo-400">
-            Partie Frontend (10 min)
-          </h3>
-          <ul className="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300">
-            <li>Conception de l'interface utilisateur
-              <ul className="list-[circle] list-inside ml-5 mt-2 space-y-1 text-sm">
-                <li>Wireframes et maquettes</li>
-                <li>Système de thèmes adaptatif</li>
-              </ul>
-            </li>
-            <li>Technologies et architecture
-              <ul className="list-[circle] list-inside ml-5 mt-2 space-y-1 text-sm">
-                <li>React/TypeScript/Tailwind CSS</li>
-                <li>Organisation des composants</li>
-              </ul>
-            </li>
-            <li>Expérience utilisateur
-              <ul className="list-[circle] list-inside ml-5 mt-2 space-y-1 text-sm">
-                <li>Responsive design</li>
-                <li>Accessibilité WCAG 2.1</li>
-              </ul>
-            </li>
-            <li>Démonstration frontend</li>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mt-8">
+        <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded shadow">
+          <h3 className="text-xl font-bold text-indigo-600 mb-2">1. Introduction (3 min)</h3>
+          <ul className="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>Présentation personnelle</li>
+            <li>Problématique</li>
+            <li>Solution et évolution</li>
           </ul>
         </div>
         
-        <div className="md:w-1/2 pl-0 md:pl-8 mt-6 md:mt-0">
-          <h3 className="text-xl font-semibold mb-4 text-indigo-600 dark:text-indigo-400">
-            Partie Backend (10 min)
-          </h3>
-          <ul className="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300">
-            <li>Architecture API RESTful
-              <ul className="list-[circle] list-inside ml-5 mt-2 space-y-1 text-sm">
-                <li>Structure MVC et organisation</li>
-                <li>Format de réponse standardisé</li>
-              </ul>
-            </li>
-            <li>Sécurité et authentification
-              <ul className="list-[circle] list-inside ml-5 mt-2 space-y-1 text-sm">
-                <li>Système JWT</li>
-                <li>Protection contre les injections</li>
-              </ul>
-            </li>
-            <li>Système de paiement
-              <ul className="list-[circle] list-inside ml-5 mt-2 space-y-1 text-sm">
-                <li>Intégration Stripe/PayPal</li>
-                <li>Suivi des transactions</li>
-              </ul>
-            </li>
-            <li>Démonstration backend</li>
+        <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded shadow">
+          <h3 className="text-xl font-bold text-indigo-600 mb-2">2. DÉMO CLI (2 min)</h3>
+          <ul className="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>CLI en action</li>
+            <li>Avantages & limites</li>
           </ul>
         </div>
-      </div>
-      
-      <div className="mt-auto pt-6 text-gray-500 text-sm border-t border-gray-200 dark:border-gray-700">
-        <p>Temps total de présentation: 20 minutes + questions</p>
+        
+        <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded shadow">
+          <h3 className="text-xl font-bold text-indigo-600 mb-2">3. Frontend (5 min)</h3>
+          <ul className="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>Architecture & choix techniques</li>
+            <li>Système de thèmes</li>
+            <li>Responsive & Accessibilité</li>
+            <li>DÉMO Frontend</li>
+          </ul>
+        </div>
+        
+        <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded shadow">
+          <h3 className="text-xl font-bold text-indigo-600 mb-2">4. Backend (5 min)</h3>
+          <ul className="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>API RESTful & MVC</li>
+            <li>Sécurité & Authentification</li>
+            <li>Système de paiement</li>
+            <li>DÉMO Backend</li>
+          </ul>
+        </div>
+        
+        <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded shadow">
+          <h3 className="text-xl font-bold text-indigo-600 mb-2">5. Déploiement (3 min)</h3>
+          <ul className="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>Pipeline CI/CD</li>
+            <li>Docker & Sécurité</li>
+            <li>Monitoring</li>
+          </ul>
+        </div>
+        
+        <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded shadow">
+          <h3 className="text-xl font-bold text-indigo-600 mb-2">6. Conclusion (2 min)</h3>
+          <ul className="list-disc list-inside text-left text-gray-700 dark:text-gray-300">
+            <li>Compétences acquises</li>
+            <li>Difficultés & solutions</li>
+            <li>Perspectives d'évolution</li>
+          </ul>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Summary;
+
 ```
 
 # src/components/slides/Title.tsx
