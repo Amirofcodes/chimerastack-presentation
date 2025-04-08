@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/chimerastack-presentation/static/css/main.c71a436c.css",
+    "main.js": "/chimerastack-presentation/static/js/main.c48f34dd.js",
+    "static/js/453.a679e654.chunk.js": "/chimerastack-presentation/static/js/453.a679e654.chunk.js",
+    "index.html": "/chimerastack-presentation/index.html",
+    "main.c71a436c.css.map": "/chimerastack-presentation/static/css/main.c71a436c.css.map",
+    "main.c48f34dd.js.map": "/chimerastack-presentation/static/js/main.c48f34dd.js.map",
+    "453.a679e654.chunk.js.map": "/chimerastack-presentation/static/js/453.a679e654.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c71a436c.css",
+    "static/js/main.c48f34dd.js"
+  ]
+}
